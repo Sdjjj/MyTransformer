@@ -1,13 +1,5 @@
-#----------------------------------------------------
-# 生成式预训练语言模型：理论与实战
-# 深蓝学院 课程 
-# 课程链接：https://www.shenlanxueyuan.com/course/620
-#
-# 作者 **黄佳**
-#----------------------------------------------------
 import torch
 from collections import Counter
-
 
 
 # WikiCorpus语料库类
@@ -20,9 +12,7 @@ class WikiCorpus:
         self.idx2word = {v: k for k, v in self.vocab.items()}
 
     def create_vocabularies(self):
-        # counter = Counter(word for sentence in self.sentences for word in sentence.split())
-        # vocab = {'<pad>': 0, '<sos>': 1, '<eos>': 2, **{word: i+3 for i, word in enumerate(counter)}}
-        with open("shared_vocab.txt", "r") as f:
+        with open("./GPTDataset/shared_vocab.txt", "r") as f:
             vocab = {line.split()[0]: int(line.split()[1]) for line in f}
         return vocab   
 
